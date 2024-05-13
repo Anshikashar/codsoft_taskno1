@@ -1,0 +1,54 @@
+#TO-DO LIST
+
+#Displaying the options to the user
+def display_task():
+    print("0.EXIT\n1.ADD TASKS\n2.DELETE TASKS\n3.VIEW TASKS\n")
+
+#For adding the tasks in the to do list
+def adding_task(task):
+    tasks=input("Enter the task: ")
+    task.append(tasks)
+    
+#For deleting the task from the to do list    
+def deleting_task(task):
+    if len(task)==0:
+        return
+    else:
+        i=int(input("Enter the index of the task which you want to delete: "))
+        if i<0 or i>len(task):
+            print("Please enter the valid index!!!")
+        else:
+            task.pop(i-1)
+
+#To view the to do list
+def view(task):
+    if len(task)==0:
+        return
+    else:
+        for i,task in enumerate(task,start=1):#i=index of the task
+            print(f'{i}.{task}')#f string
+     
+#main function
+def main():
+    task=[]
+    while True:
+        display_task()
+        choice=int(input("Please enter your choice, what do you want to perform?: "))
+        if choice==1:
+            adding_task(task)
+        elif choice==2:
+            deleting_task(task)
+        elif choice==3:
+            view(task)
+        else:
+            print("Thankyou for using this application\N{grinning face}!!")
+            break
+        
+if __name__=="__main__":
+    main()#calling  main function from here
+    
+            
+    
+        
+    
+    
